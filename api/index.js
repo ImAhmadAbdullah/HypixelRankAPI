@@ -22,7 +22,9 @@ app.get("/api/:player", async (req, res) => {
 
     const { success, player: hypixelPlayer } = hypixelResponse.data;
     const rank = success
-      ? hypixelPlayer.newPackageRank || "DEFAULT"
+      ? hypixelPlayer.monthlyPackageRank
+        ? "MVP_PLUS_PLUS"
+        : hypixelPlayer.newPackageRank || "DEFAULT"
       : "DEFAULT";
     const plusColor = success ? hypixelPlayer.rankPlusColor || "GRAY" : "GRAY";
 
