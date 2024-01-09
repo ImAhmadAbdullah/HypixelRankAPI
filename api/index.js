@@ -22,7 +22,7 @@ app.get("/api/:player", async (req, res) => {
 
     const { success, player: hypixelPlayer } = hypixelResponse.data;
     const rank = success
-      ? hypixelPlayer.monthlyPackageRank
+      ? hypixelPlayer.monthlyPackageRank !== "SUPERSTAR"
         ? "MVP_PLUS_PLUS"
         : hypixelPlayer.newPackageRank || "DEFAULT"
       : "DEFAULT";
