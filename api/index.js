@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const API_KEY = "78061de9-3134-4fd4-8654-cfc818dcb128";
+const API_KEY = "7f4ffc80-964a-4397-a7a6-02498761ccfa";
 
 app.get("/api/:player", async (req, res) => {
   try {
