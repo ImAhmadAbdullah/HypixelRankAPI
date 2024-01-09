@@ -16,10 +16,14 @@ app.get("/api/:player", async (req, res) => {
     const uuid = mojangResponse.data.id;
 
     const apiUrl = `https://api.hypixel.net/v2/player?uuid=${uuid}`;
-    const hypixelResponse = await axios.get(apiUrl, { headers: { "API-Key": API_KEY } });
+    const hypixelResponse = await axios.get(apiUrl, {
+      headers: { "API-Key": API_KEY },
+    });
 
     const { success, player: hypixelPlayer } = hypixelResponse.data;
-    const rank = success ? hypixelPlayer.newPackageRank || "DEFAULT" : "DEFAULT";
+    const rank = success
+      ? hypixelPlayer.newPackageRank || "DEFAULT"
+      : "DEFAULT";
     const plusColor = success ? hypixelPlayer.rankPlusColor || "GRAY" : "GRAY";
 
     res.json({ rank, plusColor });
